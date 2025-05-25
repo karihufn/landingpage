@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markendesign für Gesundheit | Räume die beflügeln.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #ff3e5e;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255,62,94,0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,62,94,0.4);
+            background: #e6375a;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 0;
+            background: #f2eeea;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2d3748;
+        }
+
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .problem-title {
+            font-size: 1.8rem;
+            color: #ff3e5e;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .solution-title {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Target Audience Section */
+        .target-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .target-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .target-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #1a1a1a;
+        }
+
+        .target-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .target-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .target-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            padding: 6rem 0;
+            background: #f2eeea;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-card.featured {
+            transform: scale(1.02);
+            border: 3px solid #1a1a1a;
+        }
+
+        .package-card.featured::before {
+            content: 'BELIEBT';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .package-header {
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .animal-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .package-body {
+            padding: 2.5rem 2rem;
+        }
+
+        .zodiac-text {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-style: italic;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .package-description {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .animal-fact {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-left: 4px solid #ff3e5e;
+        }
+
+        .package-cta {
+            width: 100%;
+            padding: 1.2rem;
+            background: #ff3e5e;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .package-cta:hover {
+            background: #e6375a;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card.featured {
+                transform: none;
+            }
+
+            .target-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Räume, die beflügeln</h1>
+                <p class="hero-subtitle">Markenidentitäten & Websites für alle, die Gesundheit fördern</p>
+                
+                <div class="mission-text">
+                    <strong>Räume, Systeme und Klima können krank machen, aber auch beflügeln.</strong><br><br>
+                    Ich gestalte für alle, die gesunde Räume schaffen – von innen nach außen, von außen nach innen. Durch klares Branding und durchdachtes Webdesign wird Ihre wichtige Arbeit sichtbar und erreicht die Menschen, die sie brauchen.
+                </div>
+                
+                <a href="#packages" class="cta-primary">Kostenlosen Check sichern</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">Wie Sie mit mir arbeiten können</h2>
+            
+            <div class="problem-content">
+                <h3 class="problem-title">Problem: Kommunikationsprobleme mit Grafikern, Marketern und IT'lern?</h3>
+                
+                <h3 class="solution-title">Lösung: Das verstehe ich. Ich komme Ihnen entgegen.</h3>
+                
+                <p class="description">
+                    Maßgeschneiderte Angebote für Ihre Vision, Ihr Vorhaben, Ihr Unternehmen – ohne Kopfschmerzen.<br>
+                    Bei mir können Sie zwischen drei Wegen wählen:
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="target-section">
+        <div class="container">
+            <h2 class="section-title">Meine Kunden schaffen gesunde Räume</h2>
+            
+            <div class="target-intro">
+                Ausgewählte Referenzen von Menschen, die mit ihrer Arbeit Gesundheit und Wohlbefinden fördern:
+            </div>
+            
+            <div class="target-grid">
+                <div class="target-card">
+                    <span class="target-icon">🏗️</span>
+                    <h3 class="target-title">Architekten & Dienstleister</h3>
+                    <p>Die erfolgreich klimafreundliche Umgebungen gestalten und nachhaltiges Bauen vorantreiben.</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-icon">🌱</span>
+                    <h3 class="target-title">Therapeuten & Coaches</h3>
+                    <p>Die nachhaltig Heilungsräume für Transformation schaffen und Menschen auf ihrem Weg begleiten.</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-icon">💼</span>
+                    <h3 class="target-title">Führungskräfte & Experten</h3>
+                    <p>Die profitable und gesunde Unternehmenskulturen entwickeln und Teams zum Erfolg führen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section" id="packages">
+        <div class="container">
+            <h2 class="section-title">Drei Wege zu Ihrem Erfolg</h2>
+            
+            <div class="packages-grid">
+                <!-- Package 1: Biber -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <span class="animal-emoji">🦫</span>
+                        <h3 class="package-title">Marken & Website Check</h3>
+                        <div class="package-price">Kostenlos</div>
+                        <p class="package-subtitle">30 Minuten Zeitinvest</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="zodiac-text">
+                            <strong>Sternzeichen Biber, Aszendent DIY-Dude?</strong><br>
+                            Sie sehen den Wald vor lauter Bäumen nicht mehr?
+                        </div>
+                        
+                        <div class="package-description">
+                            <strong>Alles muss man selber machen! Muss man nicht, können Sie aber</strong> – nach diesem Check-In.<br><br>
+                            
+                            Für Selbermacher, Do-it-yourself-Enthusiasten und Heimwerkerinnen:<br><br>
+                            
+                            Erhalten Sie kostenloses Feedback zu Ihrem aktuellen Auftritt und starten Sie mit 3 sofort umsetzbaren Tipps in die neue Woche. Voller Tatendrang und Biber-Energy.
+                        </div>
+                        
+                        <div class="animal-fact">
+                            <strong>Biber-Power:</strong> Diese fleißigen Nagetiere fällen eigenständig Bäume mit ihren kräftigen Zähnen und bauen komplexe Dämme und Behausungen aus Ästen, Schlamm und Steinen. Ihre Konstruktionen können mehrere Meter hoch werden und jahrzehntelang halten.
+                        </div>
+                        
+                        <button class="package-cta">Kostenloses Feedback holen</button>
+                    </div>
+                </div>
+
+                <!-- Package 2: Elefant -->
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <span class="animal-emoji">🐘</span>
+                        <h3 class="package-title">Marketing Momentum & Kontinuum</h3>
+                        <div class="package-price">ab 980 CHF</div>
+                        <p class="package-subtitle">28 Tage Transformation</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="zodiac-text">
+                            <strong>Sternzeichen Elefant, Aszendent Gründerin?</strong><br>
+                            Sie haben eine Vision, wo Sie hin möchten. Wie eine Elefantenkuh können Sie Wasser in vielen Kilometer Entfernung aufspüren.
+                        </div>
+                        
+                        <div class="package-description">
+                            Dieses Angebot ist für Sie, wenn Sie <strong>Strategie & Kraft</strong> für den Weg brauchen, der vor Ihnen liegt.<br><br>
+                            
+                            In 28 Tagen bauen wir ein Momentum auf, sodass Sie Ihre Mission wieder spüren und Ihr Ziel einfacher erreichen. <strong>Starke Marken weisen den Weg</strong> – vor allem in Zeiten, in denen sich alles zu verändern scheint.<br><br>
+                            
+                            In einem Strategiegespräch erarbeiten wir ein klares Konzept für Ihre Design- & Marketingmaßnahmen.
+                        </div>
+                        
+                        <div class="animal-fact">
+                            <strong>Elefanten-Momentum:</strong> Diese beeindruckenden Tiere können mit ihrem Gewicht von mehreren Tonnen enormes Momentum aufbauen. Bei einer Sprintgeschwindigkeit von etwa 40 km/h ist das Momentum eines rennenden Elefanten gewaltig.
+                        </div>
+                        
+                        <button class="package-cta">Momentum aufbauen</button>
+                    </div>
+                </div>
+
+                <!-- Package 3: Mauersegler -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <span class="animal-emoji">🐦</span>
+                        <h3 class="package-title">Komplettlösung Done-for-You</h3>
+                        <div class="package-price">ab 8.800 CHF</div>
+                        <p class="package-subtitle">Positionierung, Markendesign & Website</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="zodiac-text">
+                            <strong>Sternzeichen Mauersegler, Aszendent Chef?</strong><br>
+                            Fast unendlich viel Energie & Ausdauer? Aber die Zeit ist Ihre knappste Ressource?
+                        </div>
+                        
+                        <div class="package-description">
+                            Sie müssen schnell verschiedene Ziele erreichen und brauchen eine <strong>Done-for-You Gesamtlösung?</strong><br><br>
+                            
+                            Chef, CEO in der Scale-up Phase? Sie planen etwas Großes, haben viel vor und führen Teams mit starken A-Playern?<br><br>
+                            
+                            <strong>Gute Gesamtlösungen für Akrobaten der Lüfte.</strong>
+                        </div>
+                        
+                        <div class="animal-fact">
+                            <strong>Mauersegler-Exzellenz:</strong> Diese Akrobaten der Lüfte legen etwa 50.000 Kilometer pro Jahr fliegend zurück, können im Flug schlafen, und wo sie sind, ist Sommer. Selbst bei Versammlungen von über 46.000 Vögeln fliegt jeder seine eigene Bahn und trifft seine eigenen Entscheidungen. Mauersegler sind immer nur sie selbst – das macht sie so stark.
+                        </div>
+                        
+                        <button class="package-cta">Gesamtlösung anfragen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Bereit für Räume, die beflügeln?</h2>
+            <p>Lassen Sie uns gemeinsam Ihre Vision sichtbar machen und die Menschen erreichen, die Ihre wichtige Arbeit brauchen.</p>
+            <a href="#packages" class="cta-primary">Jetzt kostenlosen Check starten</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.target-card, .package-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
